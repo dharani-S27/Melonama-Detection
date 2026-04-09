@@ -2,6 +2,12 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
+import gdown
+import os
+
+if not os.path.exists("final_melanoma_model.h5"):
+    url = "https://drive.google.com/file/d/1v9S5FCCGLgdotf28H6GCnBhU7nBFKnx8/view?usp=drive_link"
+    gdown.download(url, "final_melanoma_model.h5", quiet=False)
 
 model = load_model("/content/final_melanoma_model.h5")
 
